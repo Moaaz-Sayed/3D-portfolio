@@ -1,5 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import emailJs from "@emailjs/browser";
+import { Canvas } from "@react-three/fiber";
+import Fox from "../models/Fox";
+import Loader from "../components/Loader";
+import useAlert from "../hooks/useAlert";
+import Alert from "../components/Alert";
 
 function Contact() {
   const formRef = useRef(null);
@@ -11,6 +16,9 @@ function Contact() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [currentAnimation, setCurrentAnimation] = useState("idle");
+
+  const { alert, showAlert, hideAlert } = useAlert();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,6 +27,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation("hit");
     emailJs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -34,30 +43,47 @@ function Contact() {
       )
       .then(() => {
         setIsLoading(false);
-        setForm({ name: "", email: "", message: "" });
-        alert("Thank you. I will get back to you as soon as possible.");
+
+        showAlert({
+          show: true,
+          text: "Message sent successfully!",
+          type: "success",
+        });
+
+        setTimeout(() => {
+          hideAlert();
+          setCurrentAnimation("idle");
+          setForm({ name: "", email: "", message: "" });
+        }, 3000);
       }).catch;
     (error) => {
       setIsLoading(false);
+      setCurrentAnimation("idle");
       console.error("Error sending email:", error);
+      showAlert({
+        show: true,
+        text: "I didn't receive your message. Please try again.",
+        type: "danger",
+      });
     };
   };
 
-  const handleFocus = (e) => {
-    e.target.style.outline = "2px solid #000";
+  const handleFocus = () => {
+    setCurrentAnimation("walk");
   };
 
-  const handleBlur = (e) => {
-    e.target.style.outline = "none";
+  const handleBlur = () => {
+    setCurrentAnimation("idle");
   };
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
+      {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in touch</h1>
 
         <form
-          className="w-full flex flex-col gap-7 mt-14"
+          className="w-full flex flex-col gap-7 lg:mt-14"
           onSubmit={handleSubmit}
         >
           <label className="text-black-500 font-semibold">
@@ -115,6 +141,29 @@ function Contact() {
             {isLoading ? "Sending..." : "Send Message"}
           </button>
         </form>
+      </div>
+
+      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
+        <Canvas
+          camera={{
+            position: [0, 0, 5],
+            fov: 75,
+            near: 0.1,
+            far: 1000,
+          }}
+        >
+          <directionalLight intensity={2.5} position={[0, 0, 1]} />
+          <ambientLight intensity={0.5} />
+
+          <Suspense fallback={<Loader />}>
+            <Fox
+              currentAnimation={currentAnimation}
+              position={[0.5, 0.35, 0]}
+              rotation={[12.6, -0.6, 0]}
+              scale={[0.5, 0.5, 0.5]}
+            />
+          </Suspense>
+        </Canvas>
       </div>
     </section>
   );
