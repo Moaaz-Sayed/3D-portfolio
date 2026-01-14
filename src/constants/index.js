@@ -22,6 +22,10 @@ import {
   authentication,
   dataflow,
   lms,
+  hotel,
+  hotel2,
+  car,
+  WhatsApp,
 } from "../assets/icons";
 
 export const skills = [
@@ -194,6 +198,11 @@ export const socialLinks = [
     iconUrl: linkedin,
     link: "https://www.linkedin.com/in/moaaz-sayed-43ba12270",
   },
+  {
+    name: "WhatsApp",
+    iconUrl: WhatsApp,
+    link: "https://wa.me/201061682761?text=Hello%20Moaaz%2C%20I%20found%20your%20portfolio!",
+  },
 ];
 
 export const projects = [
@@ -205,5 +214,32 @@ export const projects = [
       "A full-stack LMS (Learning Management System) built with Next.js, Prisma, and PostgreSQL. Supports course creation, chapters, lessons, user authentication, and file uploads with AWS S3.",
     demoLink: "https://moaaz-lms.vercel.app/",
     githubLink: "https://github.com/Moaaz-Sayed/moaaz-lms",
+  },
+  {
+    iconUrl: hotel,
+    theme: "btn-back-green",
+    name: "The Wild Oasis-Website",
+    description:
+      "A modern hotel booking website where guests can browse cabins, view detailed information, and make reservations. Built with Next.js for fast SSR/SSG performance and TailwindCSS for a clean responsive UI. Connected to a Supabase backend to handle real bookings, user data, and availability.",
+    demoLink: "https://moaaz-lms.vercel.app/",
+    githubLink: "https://github.com/Moaaz-Sayed/moaaz-lms",
+  },
+  {
+    iconUrl: hotel2,
+    theme: "btn-back-blue",
+    name: "The Wild Oasis – Admin Dashboard",
+    description:
+      "A hotel management dashboard built with React and Supabase. Includes authentication, cabin management, booking management, check-in/check-out flow, and a fully interactive dashboard with real-time statistics. Implemented data fetching and caching using React Query, role-based access, and a clean component-based architecture.",
+    demoLink: "https://moaaz-the-wils-oasis.netlify.app/login",
+    githubLink: "https://github.com/Moaaz-Sayed/the-wild-oasis",
+  },
+  {
+    iconUrl: car,
+    theme: "btn-back-pink",
+    name: "Get It Done",
+    description:
+      "Get It Done is a full-featured to-do list app built with React, Redux Toolkit, TailwindCSS, and Supabase. It enables users to register, log in, and manage their tasks — including adding, editing, marking as complete, deleting, and viewing when tasks were created.",
+    demoLink: "https://get-it-done-redux.netlify.app/login",
+    githubLink: "https://github.com/Moaaz-Sayed/get-it-done-redux",
   },
 ];

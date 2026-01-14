@@ -26,6 +26,10 @@ import devTools from "./devTools.svg";
 import authentication from "./authentication.svg";
 import dataflow from "./dataflow.svg";
 import lms from "./lms.png";
+import hotel from "./hotel.png";
+import hotel2 from "./hotel2.png";
+import car from "./car.svg";
+import WhatsApp from "./WhatsApp.svg";
 
 export {
   css,
@@ -56,4 +60,8 @@ export {
   authentication,
   dataflow,
   lms,
+  hotel,
+  hotel2,
+  car,
+  WhatsApp,
 };
