@@ -25,6 +25,7 @@ import paint from "./paint.svg";
 import devTools from "./devTools.svg";
 import authentication from "./authentication.svg";
 import dataflow from "./dataflow.svg";
+import lms from "./lms.png";
 
 export {
   css,
@@ -54,4 +55,5 @@ export {
   paint,
   authentication,
   dataflow,
+  lms,
 };

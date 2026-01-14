@@ -1,4 +1,4 @@
-import { useState, Suspense } from "react";
+import { useState, Suspense, useRef } from "react";
 import emailJs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import Fox from "../models/Fox";
@@ -7,6 +7,7 @@ import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
 
 function Contact() {
+  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -75,12 +76,13 @@ function Contact() {
   };
 
   return (
-    <section className="relative flex lg:flex-row flex-col max-container">
+    <section className="relative flex lg:flex-row flex-col max-container h-[100vh]">
       {alert.show && <Alert {...alert} />}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in touch</h1>
 
         <form
+          ref={formRef}
           className="w-full flex flex-col gap-7 lg:mt-14"
           onSubmit={handleSubmit}
         >
@@ -141,7 +143,7 @@ function Contact() {
         </form>
       </div>
 
-      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
+      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[270px]">
         <Canvas
           camera={{
             position: [0, 0, 5],
