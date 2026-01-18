@@ -221,8 +221,8 @@ export const projects = [
     name: "The Wild Oasis-Website",
     description:
       "A modern hotel booking website where guests can browse cabins, view detailed information, and make reservations. Built with Next.js for fast SSR/SSG performance and TailwindCSS for a clean responsive UI. Connected to a Supabase backend to handle real bookings, user data, and availability.",
-    demoLink: "https://moaaz-lms.vercel.app/",
-    githubLink: "https://github.com/Moaaz-Sayed/moaaz-lms",
+    demoLink: "https://the-wild-oasis-demo-eta.vercel.app/",
+    githubLink: "https://github.com/Moaaz-Sayed/the-wild-oasis-website",
   },
   {
     iconUrl: hotel2,
