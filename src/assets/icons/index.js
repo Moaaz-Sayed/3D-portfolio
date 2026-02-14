@@ -30,6 +30,7 @@ import hotel from "./hotel.png";
 import hotel2 from "./hotel2.png";
 import car from "./car.svg";
 import WhatsApp from "./WhatsApp.svg";
+import bank from "./bank.svg";
 
 export {
   css,
@@ -64,4 +65,5 @@ export {
   hotel2,
   car,
   WhatsApp,
+  bank,
 };

@@ -102,7 +102,7 @@ function Home() {
         </Suspense>
       </Canvas>
 
-      <div className="absolute bottom-2 left-2">
+      <div className="absolute bottom-24 sm:bottom-2 left-2">
         <img
           src={!isAudioPlaying ? soundoff : soundon}
           alt="Sound"

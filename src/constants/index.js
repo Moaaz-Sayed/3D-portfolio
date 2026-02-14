@@ -26,6 +26,7 @@ import {
   hotel2,
   car,
   WhatsApp,
+  bank,
 } from "../assets/icons";
 
 export const skills = [
@@ -207,6 +208,15 @@ export const socialLinks = [
 
 export const projects = [
   {
+    iconUrl: bank,
+    theme: "btn-back-blue",
+    name: "Horizon Bank",
+    description:
+      "A modern banking application with a finance management dashboard. Connect multiple bank accounts, view real-time transactions, and transfer money to other users on the platform.",
+    demoLink: "https://horizon-bank-umber.vercel.app",
+    githubLink: "https://github.com/Moaaz-Sayed/horizon-bank",
+  },
+  {
     iconUrl: lms,
     theme: "btn-back-red",
     name: "Moaaz LMS Platform",
@@ -238,7 +248,7 @@ export const projects = [
     theme: "btn-back-pink",
     name: "Get It Done",
     description:
-      "Get It Done is a full-featured to-do list app built with React, Redux Toolkit, TailwindCSS, and Supabase. It enables users to register, log in, and manage their tasks — including adding, editing, marking as complete, deleting, and viewing when tasks were created.",
+      "Get It Done is a Task Management Application built with user authentication, Search and filter tasks with hide/show completed state, Edit and manage tasks with smooth UI animations, Implemented delete confirmation with “don’t show again” option.",
     demoLink: "https://get-it-done-redux.netlify.app/login",
     githubLink: "https://github.com/Moaaz-Sayed/get-it-done-redux",
   },
